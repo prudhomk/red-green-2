@@ -29,7 +29,7 @@ describe('capitalizeAndFilter', () => {
 });
 
 describe('fetchQuotes', () => {
-    test.only('returns a single quote from an API', async () => {
+    test('returns a single quote from an API', async () => {
         const quote = await fetchQuotes();
         console.log(quote);
         expect(quote).toEqual({"name":"Bender","text":"Bite my shiny metal ass.","image":"https://res.cloudinary.com/dzxqhkyqd/image/fetch/c_scale,w_500/https://res.cloudinary.com/dzxqhkyqd/image/upload/v1552429540/bender.png"});

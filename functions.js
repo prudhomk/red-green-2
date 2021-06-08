@@ -14,13 +14,9 @@ export function copyPush(arr, x) {
 export function capitalizeAndFilter(arr) {
     const fixedArr = [];
     const regex = /[Ff]/g;
-    for(let i = 0; i < arr.length; i++) {
-        if(!arr[i][0].match(regex)) {
-        const capitalString = arr[i].toUpperCase();
-        fixedArr.push(capitalString)
-        }
-    }
-return fixedArr;
+    const filteredArr = arr.filter(n => !n.match(regex));
+    fixedArr.push(filteredArr.map(n => n.toUpperCase()));
+    return fixedArr[0];
 }
 
 
