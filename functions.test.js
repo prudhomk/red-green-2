@@ -21,7 +21,7 @@ describe('copyPush', () => {
 
 
 describe('capitalizeAndFilter', () => {
-    test.only('capitalizes a string of letters in an array and filters out strings beginning with F/f', () => {
+    test('capitalizes a string of letters in an array and filters out strings beginning with F/f', () => {
         const sample = ['fred says hello', 'boogers', 'Fart in your general direction'];
         const magicArray = capitalizeAndFilter(sample);
         expect(magicArray).toEqual(['BOOGERS']);
@@ -29,8 +29,9 @@ describe('capitalizeAndFilter', () => {
 });
 
 describe('fetchQuotes', () => {
-    test('returns a single quote from an API', () => {
-        const quote = fetchQuotes();
-        expect(quote).toEqual(expect.arrayContaining([]))
+    test.only('returns a single quote from an API', async () => {
+        const quote = await fetchQuotes();
+        console.log(quote);
+        expect(quote).toEqual({"name":"Bender","text":"Bite my shiny metal ass.","image":"https://res.cloudinary.com/dzxqhkyqd/image/fetch/c_scale,w_500/https://res.cloudinary.com/dzxqhkyqd/image/upload/v1552429540/bender.png"});
     });
 });

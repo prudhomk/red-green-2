@@ -1,3 +1,6 @@
+import fetch from 'node-fetch';
+
+
 export default ({name}) => {
     return name;
 };
@@ -23,9 +26,14 @@ return fixedArr;
 
 
 export function fetchQuotes() {
-    fetch('http://futuramaapi.herokuapp.com/api/quotes')
-    .then(response => response.json())
-    .then(data => console.log(data));
     
-    return data[0];
+    return fetch('http://futuramaapi.herokuapp.com/api/quotes')
+    .then(response => response.json())
+    .then(data => ({
+        name: data[0].character,
+        text: data[0].quote,
+        image: data[0].image
+     }));
+    
+
 }
